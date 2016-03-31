@@ -9,7 +9,9 @@ class WrapperTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->logger = $this->getMock('Log\Logger');
+        $this->logger = $this->getMockBuilder('Utils\Log\Logger')
+             ->disableOriginalConstructor()
+             ->getMock(); 
         $this->wordWrapper = new WordWrapper($this->logger);
     }
 
